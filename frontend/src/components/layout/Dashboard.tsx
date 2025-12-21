@@ -27,7 +27,7 @@ export default function Dashboard() {
             <Button
               key={page.name}
               onClick={() => navigate(page.path)}
-              className="w-full bg-blue-600"
+              className="w-full bg-fuchsia-700"
             >
               {page.name}
             </Button>
