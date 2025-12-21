@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { Header } from "./Header";
 
 import { Footer } from "./Footer";
+import GoBackButton from "../ui/GoBack";
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -16,8 +17,9 @@ export function AppLayout({ children }: AppLayoutProps) {
       <Header />
 
       <div className="flex flex-1">
-        
+       
         <main className="flex-1 overflow-y-auto">
+           <GoBackButton/>
           {children}
         </main>
       </div>
