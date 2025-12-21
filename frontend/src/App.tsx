@@ -1,11 +1,19 @@
-import { Button } from "@/components/ui/button"
+// src/App.tsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AppLayout } from "@/components/layout/AppLayout";
+import Dashboard from "./components/layout/Dashboard";
+
 
 function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
-    </div>
-  )
+    <BrowserRouter>
+      <AppLayout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </AppLayout>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
