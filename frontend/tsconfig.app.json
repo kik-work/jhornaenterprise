@@ -27,10 +27,11 @@
     "noUncheckedSideEffectImports": true,
 
     /* Path alias */
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/i18n.ts"]
 }

@@ -3,16 +3,17 @@
 
 import * as React from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ArrowRightIcon } from "lucide-react";
 
 // Example data
 const buyData = [
-  { id: 1, item: "Cement", quantity: 50, price: 500 },
-  { id: 2, item: "Sand", quantity: 100, price: 200 },
+  { id: 1, item: "Cement",date:"2/12/2025 Saturday", quantity: 50, price: 500 },
+  { id: 2, item: "Sand",date:"3/12/2025 Sunday", quantity: 100, price: 200 },
 ];
 
 const sellData = [
-  { id: 1, item: "Cement", quantity: 20, price: 550 },
-  { id: 2, item: "Sand", quantity: 50, price: 250 },
+  { id: 1, item: "Cement",date:"2/12/2025 Saturday", quantity: 20, price: 550 },
+  { id: 2, item: "Sand", date:"3/12/2025 Sunday", quantity: 50, price: 250 },
 ];
 
 const DailyCalculation: React.FC = () => {
@@ -31,11 +32,10 @@ const DailyCalculation: React.FC = () => {
             {buyData.map((entry) => (
               <div
                 key={entry.id}
-                className="p-4 border rounded-lg shadow-sm bg-white dark:bg-gray-800"
+                className="p-4 flex items-center justify-between border rounded-lg shadow-sm bg-white dark:bg-gray-800"
               >
-                <p><strong>Item:</strong> {entry.item}</p>
-                <p><strong>Quantity:</strong> {entry.quantity}</p>
-                <p><strong>Price:</strong> ${entry.price}</p>
+                <p>{entry.date}</p><ArrowRightIcon/>
+                
               </div>
             ))}
           </div>
