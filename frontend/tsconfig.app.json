@@ -25,16 +25,6 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-
-    /* Path alias */
-<<<<<<< Updated upstream
-    "ignoreDeprecations": "6.0",
-=======
-<<<<<<< Updated upstream
-=======
-   // "ignoreDeprecations": "6.0",
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

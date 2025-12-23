@@ -1,26 +1,21 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" },
-    
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    },
   ],
-   "compilerOptions": {
-<<<<<<< Updated upstream
-    "ignoreDeprecations":"6.0",
-<<<<<<< Updated upstream
+  "compilerOptions": {
     "resolveJsonModule": true,
-"esModuleInterop": true,
-=======
-=======
-  //  "ignoreDeprecations":"6.0",
-    "resolveJsonModule": true,
-"esModuleInterop": true,
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+    "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   }
 }
