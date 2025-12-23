@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardHeader } from "@/components/ui/card";
-import { TypographyH1, TypographyP } from "../ui/typography";
+import { TypographyH1, TypographyH4 } from "../ui/typography";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -17,19 +17,28 @@ export function Header() {
 
   return (
     <Card className="w-full rounded-2xl border bg-background shadow-sm p-4 md:p-6">
-      <CardHeader className="flex items-center justify-between">
+      <CardHeader className="flex flex-col md:flex-row items-center justify-between">
+        <div className="">
+          <img
+            src="/logo.png"
+            alt="Description"
+            className="h-14 sm:h-16 md:h-24 w-44 md:w-60  rounded-lg shadow-sm"
+          />
+        </div>
+
+
         {/* Centered Name & Address */}
-        <div className="flex flex-col items-center flex-1">
-          <TypographyH1 className="text-3xl md:text-4xl font-bold tracking-tight">
+        <div className="flex flex-col items-center">
+          <TypographyH1 className=" text-xl!  sm:text-xl!  font-bold tracking-tight">
             {name}
           </TypographyH1>
-          <TypographyP className="text-sm md:text-base text-muted-foreground mt-1">
+          <TypographyH4 className="text-xs! sm:text-xs! sm:text-red-500! text-muted-foreground mb-1 ">
             {address}
-          </TypographyP>
+          </TypographyH4>
         </div>
 
         {/* Language Toggle at End */}
-        <div className="ml-4">
+        <div className="">
           <Button size="sm" variant="outline" onClick={toggleLang}>
             {lang === "bn" ? "Switch to English" : "বাংলায় দেখান"}
           </Button>
