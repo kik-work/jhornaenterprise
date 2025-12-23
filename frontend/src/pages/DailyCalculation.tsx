@@ -1,61 +1,45 @@
-// src/pages/DailyCalculation.tsx
 "use client";
 
 import * as React from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ArrowRightIcon } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-// Example data
-const buyData = [
-  { id: 1, item: "Cement", quantity: 50, price: 500 },
-  { id: 2, item: "Sand", quantity: 100, price: 200 },
+type Props = {
+  onSelectDate: (date: string) => void;
+};
+
+// Example available dates with translations (for simplicity, only the day names in Bangla)
+const dates = [
+  { en: "2/12/2025 Saturday", bn: "২/১২/২০২৫ শনিবার" },
+  { en: "3/12/2025 Sunday", bn: "৩/১২/২০২৫ রবিবার" },
+  { en: "4/12/2025 Monday", bn: "৪/১২/২০২৫ সোমবার" },
+  { en: "5/12/2025 Tuesday", bn: "৫/১২/২০২৫ মঙ্গলবার" },
+  { en: "6/12/2025 Wednesday", bn: "৬/১২/২০২৫ বুধবার" },
 ];
 
-const sellData = [
-  { id: 1, item: "Cement", quantity: 20, price: 550 },
-  { id: 2, item: "Sand", quantity: 50, price: 250 },
-];
+const DailyCalculation: React.FC<Props> = ({ onSelectDate }) => {
+  const { lang } = useLanguage(); // "en" or "bn"
 
-const DailyCalculation: React.FC = () => {
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Daily Calculation</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        {lang === "bn" ? "দৈনিক হিসাব" : "Daily Calculation"}
+      </h1>
 
-      <Tabs defaultValue="buy" className="w-full">
-        <TabsList className="mb-4 w-full">
-          <TabsTrigger value="buy">Buy</TabsTrigger>
-          <TabsTrigger value="sell">Sell</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="buy">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {buyData.map((entry) => (
-              <div
-                key={entry.id}
-                className="p-4 border rounded-lg shadow-sm bg-white dark:bg-gray-800"
-              >
-                <p><strong>Item:</strong> {entry.item}</p>
-                <p><strong>Quantity:</strong> {entry.quantity}</p>
-                <p><strong>Price:</strong> ${entry.price}</p>
-              </div>
-            ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {dates.map((dateObj) => (
+          <div
+            key={dateObj.en}
+            onClick={() => onSelectDate(dateObj.en)} // Keep the value in English for backend logic
+            className="p-4 flex items-center justify-between border rounded-lg
+                       bg-white dark:bg-gray-800 shadow-sm cursor-pointer
+                       hover:bg-muted transition"
+          >
+            <p>{dateObj[lang]}</p>
+            <ArrowRightIcon className="h-4 w-4 text-muted-foreground" />
           </div>
-        </TabsContent>
-
-        <TabsContent value="sell">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {sellData.map((entry) => (
-              <div
-                key={entry.id}
-                className="p-4 border rounded-lg shadow-sm bg-white dark:bg-gray-800"
-              >
-                <p><strong>Item:</strong> {entry.item}</p>
-                <p><strong>Quantity:</strong> {entry.quantity}</p>
-                <p><strong>Price:</strong> ${entry.price}</p>
-              </div>
-            ))}
-          </div>
-        </TabsContent>
-      </Tabs>
+        ))}
+      </div>
     </div>
   );
 };
