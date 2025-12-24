@@ -1,9 +1,7 @@
-// src/components/layout/AppLayout.tsx
 "use client";
 
 import type { ReactNode } from "react";
 import { Header } from "./Header";
-
 import { Footer } from "./Footer";
 import GoBackButton from "../ui/GoBack";
 
