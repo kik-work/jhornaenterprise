@@ -13,7 +13,7 @@ interface AppLayoutProps {
 
 export function AppLayout({ children }: AppLayoutProps) {
   return (
-    <div className="min-h-screen flex p-6 flex-col bg-background space-y-6">
+    <div className="min-h-screen flex p-6 flex-col bg-background space-y-2">
       <Header />
 
       <div className="flex flex-1">

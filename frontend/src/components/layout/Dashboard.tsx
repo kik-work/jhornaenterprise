@@ -1,9 +1,10 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
+import { ChevronRight } from "lucide-react";
 
 // Define translations
 const pagesTranslations = {
@@ -40,17 +41,25 @@ export default function Dashboard() {
         <CardTitle className="gap-2">{translations.welcome[lang]}</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {pages.map((page) => (
-            <Button
-              key={page.key}
-              onClick={() => navigate(page.path)}
-              className="w-full bg-teal-700"
-            >
-              {pagesTranslations[page.key][lang]}
-            </Button>
-          ))}
-        </div>
+ 
+          <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+            {pages.map((page) => (
+              <Card
+                key={page.key}
+                onClick={() => navigate(page.path)}
+                className="cursor-pointer hover:shadow-lg transition-shadow group bg-violet-50 hover:bg-violet-200"
+              >
+                <CardContent className="flex items-center justify-between p-6">
+                  <span className="text-base font-semibold">
+                    {pagesTranslations[page.key][lang]}
+                  </span>
+
+                  <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+  
       </CardContent>
     </Card>
   );
