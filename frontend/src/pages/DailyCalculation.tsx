@@ -26,7 +26,7 @@ const DailyCalculation: React.FC<Props> = ({ onSelectDate }) => {
         {lang === "bn" ? "দৈনিক হিসাব" : "Daily Calculation"}
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1  gap-4">
         {dates.map((dateObj) => (
           <div
             key={dateObj.en}
